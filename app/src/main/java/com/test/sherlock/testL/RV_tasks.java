@@ -37,7 +37,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-            holder.answers_block.clearCheck();
+            holder.setIsRecyclable(false);
             final Task current_task = tasks.get(position);
             int task_type = current_task.getType_task();
             int status = current_task.getStatus();
@@ -46,11 +46,14 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
             holder.task.setText(current_task.getTask());
 
             //Установить статус: решена ли текущая задача или нет
-            if(status == 1) holder.status.setVisibility(View.VISIBLE);
+            if(status == 1) {
+                holder.status.setVisibility(View.VISIBLE);
+                holder.set_done.setVisibility(View.GONE);
+            }
             else holder.status.setVisibility(View.GONE);
 
             if(task_type == 1) {
-
+                holder.set_done.setVisibility(View.GONE);
                 holder.answers_block.setVisibility(View.VISIBLE);
 
                 holder.answer1_text.setText(current_task.getAnswer1());
@@ -62,11 +65,11 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                 holder.check_answer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int checked_radio_button_id = holder.current_checked_button.getId();
-                        if(checked_radio_button_id == -1) {
+                        if(null == holder.current_checked_button) {
                             presenter.tellViewToShowMessageThatUserDoesNotChooseAnswer();
                         }
                         else{
+                            int checked_radio_button_id = holder.current_checked_button.getId();
                             String answer = null;
                             switch (checked_radio_button_id){
                                 case R.id.test_rv_item_radio_answer1:
@@ -87,6 +90,9 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                             }
                             if(current_task.getCorrect_answer().equals(answer)){
                                 presenter.tellViewToShowMessageThatUserFoundCorrectAnswer();
+                                current_task.setStatus(1);
+                                holder.status.setVisibility(View.VISIBLE);
+                                //TODO:Синхронизация с бд
                             }else{
                                 presenter.tellViewToShowMessageThatUserFoundIncorrectAnswer();
                             }
@@ -95,6 +101,23 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                     }
                 });
             }else holder.answers_block.setVisibility(View.GONE);
+
+            holder.show_answer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    presenter.tellViewToShowDialogWithDescAnswer(current_task.getAnswer());
+                }
+            });
+
+            holder.set_done.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    current_task.setStatus(1);
+                    holder.status.setVisibility(View.VISIBLE);
+                    holder.set_done.setVisibility(View.GONE);
+                    //TODO:Синхронизация с бд
+                }
+            });
     }
 
     @Override

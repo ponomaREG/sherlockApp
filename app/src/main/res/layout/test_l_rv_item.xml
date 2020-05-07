@@ -9,12 +9,12 @@
 
     <TextView
         android:id="@+id/test_rv_item_status"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:text="@string/test_rv_item_status"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="28sp"
+        android:textSize="24sp"
         />
     <ImageView
         android:id="@+id/test_rv_item_setDone"

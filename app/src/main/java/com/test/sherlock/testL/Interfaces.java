@@ -13,6 +13,7 @@ public interface Interfaces {
         void showToastCorrectAnswer();
         void showToastIncorrectAnswer();
         void showToastErrorRadioButtonDoesNotChecked();
+        void showDialogWithDescAnswer(String answer);
         void setAdapter(RV_tasks adapter);
     }
 
@@ -23,6 +24,7 @@ public interface Interfaces {
             void tellViewToShowMessageThatUserFoundCorrectAnswer();
             void tellViewToShowMessageThatUserFoundIncorrectAnswer();
             void tellViewToShowMessageThatUserDoesNotChooseAnswer();
+            void tellViewToShowDialogWithDescAnswer(String desc);
         }
     }
 

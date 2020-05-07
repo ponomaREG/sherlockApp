@@ -5,7 +5,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.test.sherlock.R;
@@ -47,6 +52,22 @@ public class testL_view extends AppCompatActivity implements Interfaces.View{
     @Override
     public void showToastErrorRadioButtonDoesNotChecked() {
         Toast.makeText(this, "Необходимо выбрать ответ", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showDialogWithDescAnswer(String answer) {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.test_rv_item_desc_dialog);
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ((TextView) dialog.findViewById(R.id.test_rv_dialog_desc_text)).setText(answer);
+        dialog.findViewById(R.id.test_rv_dialog_desc_button_dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setCancelable(true);
+        dialog.show();
     }
 
     @Override
