@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">sherlock</string>
+    <string name="test_rv_item_status">Уже решено</string>
+    <string name="test_rv_item_button_check">Проверить</string>
+    <string name="test_rv_item_show_answer">show answer</string>
+    <string name="test_rv_item_set_done">set_done</string>
 </resources>
