@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private final static String DB_NAME = "sh.db";
     private static String DB_PATH = "";
     private SQLiteDatabase mDataBase;
-    private boolean mNeedUpdate = false;
+    private boolean mNeedUpdate = true;
     private Context context;
     private static DBHelper instance;
 
@@ -34,6 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void updateDataBase(){
         if (mNeedUpdate) {
+            Log.d("UPDATE","123");
             File dbFile = new File(DB_PATH + DB_NAME);
             if (dbFile.exists())
                 dbFile.delete();
@@ -44,6 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public boolean checkDataBase() {
         File dbFile = new File(DB_PATH + DB_NAME);
+        Log.d("EXIST",dbFile.exists()+"");
         return dbFile.exists();
     }
     public void copyDataBase() {
@@ -88,8 +91,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (newVersion > oldVersion)
+        if (newVersion > oldVersion){
             mNeedUpdate = true;
+            updateDataBase();
+        }
+
     }
 
 

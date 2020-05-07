@@ -1,6 +1,7 @@
 package com.test.sherlock.testL;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.test.sherlock.R;
+
+import java.util.Objects;
 
 public class testL_view extends AppCompatActivity implements Interfaces.View{
 
@@ -49,6 +52,9 @@ public class testL_view extends AppCompatActivity implements Interfaces.View{
     @Override
     public void setAdapter(RV_tasks adapter) {
         RecyclerView rv = findViewById(R.id.test_rv);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(rv.getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(Objects.requireNonNull(getDrawable(R.drawable.test_rv_divider)));
+        rv.addItemDecoration(itemDecorator);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);

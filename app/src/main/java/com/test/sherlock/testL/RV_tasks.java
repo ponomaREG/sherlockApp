@@ -21,10 +21,12 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
 
     private LayoutInflater inflater;
     private List<Task> tasks;
+    private Interfaces.Presenter.connectionBetweenRecyclerViewAndView presenter;
 
-    RV_tasks(LayoutInflater inflater, List<Task> tasks){
+    RV_tasks(Interfaces.Presenter.connectionBetweenRecyclerViewAndView presenter, LayoutInflater inflater, List<Task> tasks){
         this.inflater = inflater;
         this.tasks = tasks;
+        this.presenter = presenter;
     }
 
     @NonNull
@@ -35,6 +37,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+            holder.answers_block.clearCheck();
             final Task current_task = tasks.get(position);
             int task_type = current_task.getType_task();
             int status = current_task.getStatus();
@@ -59,9 +62,9 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                 holder.check_answer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int checked_radio_button_id = holder.answers_block.getCheckedRadioButtonId();
+                        int checked_radio_button_id = holder.current_checked_button.getId();
                         if(checked_radio_button_id == -1) {
-                            //TODO:Показать ошибку
+                            presenter.tellViewToShowMessageThatUserDoesNotChooseAnswer();
                         }
                         else{
                             String answer = null;
@@ -83,15 +86,15 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                                     break;
                             }
                             if(current_task.getCorrect_answer().equals(answer)){
-                                //TODO: Сказать , что правильный ответ
+                                presenter.tellViewToShowMessageThatUserFoundCorrectAnswer();
                             }else{
-                                //TODO: Сказать , что неправильный ответ
+                                presenter.tellViewToShowMessageThatUserFoundIncorrectAnswer();
                             }
                         }
 
                     }
                 });
-            }
+            }else holder.answers_block.setVisibility(View.GONE);
     }
 
     @Override
@@ -104,7 +107,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
         ImageView set_done, show_answer;
         Button check_answer;
         RadioGroup answers_block;
-        RadioButton answer1_radio,answer2_radio,answer3_radio,answer4_radio,answer5_radio;
+        RadioButton answer1_radio,answer2_radio,answer3_radio,answer4_radio,answer5_radio ,current_checked_button;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -129,6 +132,20 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
 
             answers_block = itemView.findViewById(R.id.test_rv_item_radiogroup);
 
+
+            RadioButton.OnClickListener ocl = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(current_checked_button != null) current_checked_button.setChecked(false);
+                    current_checked_button = (RadioButton) v;
+                    current_checked_button.setChecked(true);
+                }
+            };
+            answer1_radio.setOnClickListener(ocl);
+            answer2_radio.setOnClickListener(ocl);
+            answer3_radio.setOnClickListener(ocl);
+            answer4_radio.setOnClickListener(ocl);
+            answer5_radio.setOnClickListener(ocl);
 
         }
     }

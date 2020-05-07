@@ -29,6 +29,6 @@ public class testL_presenter implements Interfaces.Presenter, Interfaces.Present
 
     @Override
     public void getAdapter(Context context) {
-        view.setAdapter(new RV_tasks(LayoutInflater.from(context),model.getTasks()));
+        view.setAdapter(new RV_tasks(this,LayoutInflater.from(context),model.getTasks()));
     }
 }

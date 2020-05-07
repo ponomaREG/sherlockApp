@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
+    android:layout_marginBottom="15dp"
     android:padding="5dp">
 
     <TextView
@@ -18,8 +19,8 @@
     <ImageView
         android:id="@+id/test_rv_item_setDone"
         android:layout_margin="3dp"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_toStartOf="@id/test_rv_item_showAnswer"
         android:src="@drawable/test_rv_item_set_done"
         android:contentDescription="@string/test_rv_item_set_done" />
@@ -27,8 +28,8 @@
     <ImageView
         android:id="@+id/test_rv_item_showAnswer"
         android:layout_margin="3dp"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:src="@drawable/test_rv_item_show_answer_icon"
         android:contentDescription="@string/test_rv_item_show_answer" />
@@ -61,7 +62,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -117,7 +119,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:orientation="horizontal"

@@ -3,7 +3,7 @@ package com.test.sherlock.objects;
 public class Task {
     private String task , title, answer, answer1 , answer2, answer3, answer4, answer5, correct_answer;
     private int type_task;
-    private int status;
+    private int status = 0;
     private int section;
 
     public Task setSection(int section) {

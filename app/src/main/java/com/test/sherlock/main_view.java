@@ -7,16 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-public class main_view extends AppCompatActivity {
+import com.test.sherlock.objects.DBHelper;
+
+public class main_view extends AppCompatActivity implements Interfaces.View{
+
+    private main_presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        initPresenter();
         initOclToCardsMenu();
+        initInstanceOfDB();
     }
 
+
+    private void initPresenter(){
+        this.presenter = new main_presenter(this);
+    }
 
     private void initOclToCardsMenu(){
         RelativeLayout testR, testL, testD, tasks, study;
@@ -30,35 +40,25 @@ public class main_view extends AppCompatActivity {
         View.OnClickListener ocl = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                switch (v.getId()){
-                    case R.id.main_card_study:
-//                        intent = new Intent(main_view.this,act_study.class);
-//                        startActivity(intent);
-                        break;
-                    case R.id.main_card_tasks:
-//                        intent = new Intent(main_view.this,act_tasks.class);
-//                        startActivity(intent);
-                        break;
-                    case R.id.main_card_testD:
-//                        intent = new Intent(main_view.this,act_testD.class);
-//                        startActivity(intent);
-                        break;
-                    case R.id.main_card_testL:
-//                        intent = new Intent(main_view.this,act_testL.class);
-//                        startActivity(intent);
-                        break;
-                    case R.id.main_card_testR:
-//                        intent = new Intent(main_view.this,act_testR.class);
-//                        startActivity(intent);
-                        break;
-                }
+                presenter.OnSectionClick(v);
             }
         };
+
         study.setOnClickListener(ocl);
         tasks.setOnClickListener(ocl);
         testD.setOnClickListener(ocl);
         testL.setOnClickListener(ocl);
         testR.setOnClickListener(ocl);
+    }
+
+    void initInstanceOfDB(){
+        DBHelper dbHelper = new DBHelper(this);
+        dbHelper.updateDataBase();
+    }
+
+    @Override
+    public void startNextActivity(Class cls) {
+        Intent intent = new Intent(this,cls);
+        startActivity(intent);
     }
 }
