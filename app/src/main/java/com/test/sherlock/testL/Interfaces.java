@@ -26,9 +26,14 @@ public interface Interfaces {
             void tellViewToShowMessageThatUserDoesNotChooseAnswer();
             void tellViewToShowDialogWithDescAnswer(String desc);
         }
+
+        interface connectionBetweenRecyclerViewAndModel {
+            void tellModelToUpdateInDataBaseStatusByID(int id, int status);
+        }
     }
 
     interface Model{
         List<Task> getTasks();
+        void updateStatusByID(int id, int status);
     }
 }

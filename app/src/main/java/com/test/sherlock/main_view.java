@@ -53,7 +53,7 @@ public class main_view extends AppCompatActivity implements Interfaces.View{
 
     void initInstanceOfDB(){
         DBHelper dbHelper = new DBHelper(this);
-        dbHelper.updateDataBase();
+        dbHelper.copyDataBase();
     }
 
     @Override

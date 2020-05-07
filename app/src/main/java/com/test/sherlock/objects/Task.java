@@ -3,7 +3,8 @@ package com.test.sherlock.objects;
 public class Task {
     private String task , title, answer, answer1 , answer2, answer3, answer4, answer5, correct_answer;
     private int type_task;
-    private int status = 0;
+    private int status;
+    private int id;
     private int section;
 
     public Task setSection(int section) {
@@ -65,7 +66,9 @@ public class Task {
         return this;
     }
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getType_task() {
         return type_task;
@@ -113,5 +116,9 @@ public class Task {
 
     public int getStatus() {
         return status;
+    }
+
+    public int getId() {
+        return id;
     }
 }

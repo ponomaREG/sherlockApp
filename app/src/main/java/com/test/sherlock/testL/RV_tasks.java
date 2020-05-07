@@ -21,12 +21,14 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
 
     private LayoutInflater inflater;
     private List<Task> tasks;
-    private Interfaces.Presenter.connectionBetweenRecyclerViewAndView presenter;
+    private Interfaces.Presenter.connectionBetweenRecyclerViewAndView presenter_to_view;
+    private Interfaces.Presenter.connectionBetweenRecyclerViewAndModel presenter_to_model;
 
-    RV_tasks(Interfaces.Presenter.connectionBetweenRecyclerViewAndView presenter, LayoutInflater inflater, List<Task> tasks){
+    RV_tasks(Interfaces.Presenter presenter, LayoutInflater inflater, List<Task> tasks){
         this.inflater = inflater;
         this.tasks = tasks;
-        this.presenter = presenter;
+        this.presenter_to_view = (Interfaces.Presenter.connectionBetweenRecyclerViewAndView) presenter;
+        this.presenter_to_model = (Interfaces.Presenter.connectionBetweenRecyclerViewAndModel) presenter;
     }
 
     @NonNull
@@ -66,7 +68,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                     @Override
                     public void onClick(View v) {
                         if(null == holder.current_checked_button) {
-                            presenter.tellViewToShowMessageThatUserDoesNotChooseAnswer();
+                            presenter_to_view.tellViewToShowMessageThatUserDoesNotChooseAnswer();
                         }
                         else{
                             int checked_radio_button_id = holder.current_checked_button.getId();
@@ -89,12 +91,12 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                                     break;
                             }
                             if(current_task.getCorrect_answer().equals(answer)){
-                                presenter.tellViewToShowMessageThatUserFoundCorrectAnswer();
+                                presenter_to_view.tellViewToShowMessageThatUserFoundCorrectAnswer();
                                 current_task.setStatus(1);
                                 holder.status.setVisibility(View.VISIBLE);
-                                //TODO:Синхронизация с бд
+                                presenter_to_model.tellModelToUpdateInDataBaseStatusByID(current_task.getId(),current_task.getStatus());
                             }else{
-                                presenter.tellViewToShowMessageThatUserFoundIncorrectAnswer();
+                                presenter_to_view.tellViewToShowMessageThatUserFoundIncorrectAnswer();
                             }
                         }
 
@@ -105,7 +107,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
             holder.show_answer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    presenter.tellViewToShowDialogWithDescAnswer(current_task.getAnswer());
+                    presenter_to_view.tellViewToShowDialogWithDescAnswer(current_task.getAnswer());
                 }
             });
 
@@ -115,7 +117,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                     current_task.setStatus(1);
                     holder.status.setVisibility(View.VISIBLE);
                     holder.set_done.setVisibility(View.GONE);
-                    //TODO:Синхронизация с бд
+                    presenter_to_model.tellModelToUpdateInDataBaseStatusByID(current_task.getId(),current_task.getStatus());
                 }
             });
     }

@@ -3,7 +3,7 @@ package com.test.sherlock.testL;
 import android.content.Context;
 import android.view.LayoutInflater;
 
-public class testL_presenter implements Interfaces.Presenter, Interfaces.Presenter.connectionBetweenRecyclerViewAndView {
+public class testL_presenter implements Interfaces.Presenter, Interfaces.Presenter.connectionBetweenRecyclerViewAndView, Interfaces.Presenter.connectionBetweenRecyclerViewAndModel {
     private Interfaces.View view;
     private Interfaces.Model model;
 
@@ -35,5 +35,10 @@ public class testL_presenter implements Interfaces.Presenter, Interfaces.Present
     @Override
     public void getAdapter(Context context) {
         view.setAdapter(new RV_tasks(this,LayoutInflater.from(context),model.getTasks()));
+    }
+
+    @Override
+    public void tellModelToUpdateInDataBaseStatusByID(int id, int status) {
+        model.updateStatusByID(id,status);
     }
 }
