@@ -1,4 +1,4 @@
-package com.test.sherlock.testL;
+package com.test.sherlock.test;
 
 import android.content.Context;
 

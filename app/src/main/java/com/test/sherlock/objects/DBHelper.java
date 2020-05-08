@@ -1,6 +1,8 @@
 package com.test.sherlock.objects;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,6 +21,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private boolean mNeedUpdate = true;
     private Context context;
     private static DBHelper instance;
+
+
+
+    private final String sql_get_tasks = "select * from %s;",
+            sql_get_answer_by_id = "select * from %s where id = %s;",
+            sql_update_status = "update testL set status=%s where id = %s;";
 
 
 
@@ -98,5 +106,26 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+
+    public Cursor getTasksFromDb(String table){
+        SQLiteDatabase sql_db = this.getReadableDatabase();
+        Cursor c = sql_db.rawQuery(String.format(sql_get_tasks,table),null);
+        c.moveToFirst();
+        sql_db.close();
+        return c;
+    }
+
+    public Cursor getAnswerByID(String table, int id){
+        SQLiteDatabase sql_db = this.getReadableDatabase();
+        Cursor c = sql_db.rawQuery(String.format(sql_get_answer_by_id,table,id),null);
+        c.moveToFirst();
+        return c;
+    }
+
+    public void updateByID(String table, int id, ContentValues cv) {
+        SQLiteDatabase sql_db = this.getWritableDatabase();
+        sql_db.update(table,cv,"id = ?",new String[]{String.valueOf(id)});
+        sql_db.close();
+    }
 
 }

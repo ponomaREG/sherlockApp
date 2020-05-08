@@ -1,4 +1,4 @@
-package com.test.sherlock.testL;
+package com.test.sherlock.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -17,21 +17,21 @@ import com.test.sherlock.R;
 
 import java.util.Objects;
 
-public class testL_view extends AppCompatActivity implements Interfaces.View{
+public class test_view extends AppCompatActivity implements Interfaces.View{
 
     private Interfaces.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_l_view);
+        setContentView(R.layout.test_view);
 
         initPresenter();
         initRV();
     }
 
     private void initPresenter(){
-        this.presenter = new testL_presenter(this);
+        this.presenter = new test_presenter(this);
     }
 
     private void initRV(){

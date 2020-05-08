@@ -1,8 +1,7 @@
-package com.test.sherlock.testL;
+package com.test.sherlock.test;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.test.sherlock.objects.DBHelper;
@@ -11,24 +10,18 @@ import com.test.sherlock.objects.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class testL_model implements Interfaces.Model {
+public class test_model implements Interfaces.Model {
 
     private DBHelper dbHelper;
 
-    private final String sql_get_tasks = "select * from testL;",
-            sql_get_answer_by_id = "select * from answerL where id = %s;",
-            sql_update_status = "update testL set status=%s where id = %s;";
-
-    testL_model(){
+    test_model(){
         this.dbHelper = DBHelper.getInstance();
     }
 
     @Override
     public List<Task> getTasks() {
         List<Task> tasks = new ArrayList<>();
-        SQLiteDatabase sql_db = dbHelper.getReadableDatabase();
-        Cursor c = sql_db.rawQuery(sql_get_tasks,null);
-        c.moveToFirst();
+        Cursor c = dbHelper.getTasksFromDb("testL");
         for(int i = 0;i<c.getCount();i++){
             int answer_id = c.getInt(c.getColumnIndex("answersL"));
             int type_task = c.getInt(c.getColumnIndex("type"));
@@ -44,8 +37,7 @@ public class testL_model implements Interfaces.Model {
             new_task.setId(id);
             new_task.setStatus(status);
 
-            Cursor c_answer = sql_db.rawQuery(String.format(sql_get_answer_by_id,answer_id),null);
-            c_answer.moveToFirst();
+            Cursor c_answer =dbHelper.getAnswerByID("answerL",answer_id);
             String desc_answer = c_answer.getString(c_answer.getColumnIndex("answer"));
             if(type_task == 1){
                 String answer1 = c_answer.getString(c_answer.getColumnIndex("answer1"));
@@ -75,12 +67,9 @@ public class testL_model implements Interfaces.Model {
 
     @Override
     public void updateStatusByID(int id, int status) {
-        SQLiteDatabase sql_db = dbHelper.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
         cv.put("is_done",String.valueOf(status));
-        Log.d("update","ASDASDASDASDa");
-        sql_db.update("testL",cv,"id = ?",new String[]{String.valueOf(id)});
-        sql_db.close();
+        dbHelper.updateByID("testL",id,cv);
     }
 }

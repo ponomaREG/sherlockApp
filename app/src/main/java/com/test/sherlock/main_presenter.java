@@ -2,7 +2,8 @@ package com.test.sherlock;
 
 import android.view.View;
 
-import com.test.sherlock.testL.testL_view;
+import com.test.sherlock.tasks.tasks_view;
+import com.test.sherlock.test.test_view;
 
 public class main_presenter  implements Interfaces.Presenter{
 
@@ -23,6 +24,7 @@ public class main_presenter  implements Interfaces.Presenter{
             case R.id.main_card_tasks:
 //                        intent = new Intent(main_view.this,act_tasks.class);
 //                        startActivity(intent);
+                view.startNextActivity(tasks_view.class);
                 break;
             case R.id.main_card_testD:
 //                        intent = new Intent(main_view.this,act_testD.class);
@@ -31,7 +33,7 @@ public class main_presenter  implements Interfaces.Presenter{
             case R.id.main_card_testL:
 //                        intent = new Intent(main_view.this,act_testL.class);
 //                        startActivity(intent);
-                view.startNextActivity(testL_view.class);
+                view.startNextActivity(test_view.class);
                 break;
             case R.id.main_card_testR:
 //                        intent = new Intent(main_view.this,act_testR.class);

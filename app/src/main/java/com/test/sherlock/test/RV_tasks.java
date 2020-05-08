@@ -1,4 +1,4 @@
-package com.test.sherlock.testL;
+package com.test.sherlock.test;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +34,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.test_l_rv_item,parent,false));
+        return new ViewHolder(inflater.inflate(R.layout.test_rv_item,parent,false));
     }
 
     @Override

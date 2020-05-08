@@ -1,16 +1,16 @@
-package com.test.sherlock.testL;
+package com.test.sherlock.test;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 
-public class testL_presenter implements Interfaces.Presenter, Interfaces.Presenter.connectionBetweenRecyclerViewAndView, Interfaces.Presenter.connectionBetweenRecyclerViewAndModel {
+public class test_presenter implements Interfaces.Presenter, Interfaces.Presenter.connectionBetweenRecyclerViewAndView, Interfaces.Presenter.connectionBetweenRecyclerViewAndModel {
     private Interfaces.View view;
     private Interfaces.Model model;
 
 
-    testL_presenter(testL_view view){
+    test_presenter(test_view view){
         this.view = view;
-        this.model = new testL_model();
+        this.model = new test_model();
     }
     @Override
     public void tellViewToShowMessageThatUserFoundCorrectAnswer() {
