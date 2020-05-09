@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tasks.move_on_task.move_on_task_view"></activity>
+        <activity android:name=".study_menu.move_on_study.chapter.chapter_view"></activity>
+        <activity android:name=".study_menu.move_on_study.move_on_study_view" />
+        <activity android:name=".study_menu.study_menu_view" />
+        <activity android:name=".tasks.move_on_task.move_on_task_view" />
         <activity android:name=".tasks.tasks_view" />
         <activity android:name=".test.test_view" />
         <activity android:name=".main_view">

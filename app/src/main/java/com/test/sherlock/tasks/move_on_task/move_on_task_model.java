@@ -8,7 +8,7 @@ public class move_on_task_model implements Interfaces.Model {
 
     private DBHelper dbHelper = DBHelper.getInstance();
 
-
+//TODO: ОБновление статуса
     @Override
     public void updateStatusByID(int id) {
         ContentValues cv = new ContentValues();

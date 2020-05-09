@@ -26,7 +26,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private final String sql_get_tasks = "select * from %s;",
             sql_get_answer_by_id = "select * from %s where id = %s;",
-            sql_update_status = "update testL set status=%s where id = %s;";
+            sql_update_status = "update testL set status=%s where id = %s;",
+            sql_get_text_of_book_by_chapter = "select * from study where (chapter = %s and type = %s);",
+            sql_get_chapters_of_book = "select * from %s where (type = %s and title like 'Глава%%');";
 
 
 
@@ -127,5 +129,25 @@ public class DBHelper extends SQLiteOpenHelper {
         sql_db.update(table,cv,"id = ?",new String[]{String.valueOf(id)});
         sql_db.close();
     }
+
+    public Cursor getStudyBookChapters(String table,int type){
+
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = String.format(sql_get_chapters_of_book,table,type);
+        query = query.replace("%%","%");
+        Cursor c = sqLiteDatabase.rawQuery(query,null);
+        Log.d("COUNT",c.getCount()+"");
+        c.moveToFirst();
+        return c;
+    }
+
+    public Cursor getChapterTextByTypeAndChapter(int type, int chapter){
+        SQLiteDatabase sql_db = this.getReadableDatabase();
+        Cursor c = sql_db.rawQuery(String.format(sql_get_text_of_book_by_chapter, chapter, type),null);
+        c.moveToFirst();
+        sql_db.close();
+        return c;
+    }
+
 
 }

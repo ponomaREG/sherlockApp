@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:id="@+id/study_menu_book_sh"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:padding="3dp"
+            android:gravity="center"
+            android:background="@drawable/main_item_card">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"
+                android:text="Думай как Шерлок"
+                android:textSize="@dimen/main_card_textSize"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/study_menu_memory"
+            android:layout_below="@id/study_menu_book_sh"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:padding="3dp"
+            android:gravity="center"
+            android:background="@drawable/main_item_card">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@android:color/black"
+                android:text="Дворец памяти"
+                android:textSize="@dimen/main_card_textSize"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</ScrollView>
