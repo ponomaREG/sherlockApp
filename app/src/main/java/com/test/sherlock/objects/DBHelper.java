@@ -28,6 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
             sql_get_answer_by_id = "select * from %s where id = %s;",
             sql_update_status = "update testL set status=%s where id = %s;",
             sql_get_text_of_book_by_chapter = "select * from study where (chapter = %s and type = %s);",
+            sql_get_answers_and_questions_test_att = "select * from (select * from answersAtt order by random()) group by ref_q order by random() LIMIT %s;",
             sql_get_chapters_of_book = "select * from %s where (type = %s and title like 'Глава%%');";
 
 
@@ -149,5 +150,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return c;
     }
 
+
+    public Cursor getQuestionsAndAnswerForTestAtt(int count, int type){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor c = sqLiteDatabase.rawQuery(String.format(sql_get_answers_and_questions_test_att,count),null);
+        c.moveToFirst();
+        sqLiteDatabase.close();
+        return c;
+    }
 
 }

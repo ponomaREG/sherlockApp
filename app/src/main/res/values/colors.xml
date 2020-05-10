@@ -3,4 +3,9 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#A19F9F</color>
     <color name="colorAccent">#4F5151</color>
+
+
+
+    <color name="button_selector_nonpressed">#A19F9F</color>
+    <color name="button_selector_pressed">#878686</color>
 </resources>

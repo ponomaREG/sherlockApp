@@ -52,7 +52,7 @@
             android:layout_centerInParent="true"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:text="Тест на дедукцию"
+            android:text="Тест на память"
             android:textSize="@dimen/main_card_textSize"/>
 
     </RelativeLayout>

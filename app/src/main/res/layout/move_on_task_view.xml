@@ -52,14 +52,14 @@
                     android:textAllCaps="false"
                     android:textSize="21sp"
                     android:textColor="@android:color/black"
-                    android:background="@drawable/tasks_move_on_task_buttons"
+                    android:background="@drawable/tasks_move_on_task_buttons_selector"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Решить"/>
                 <Button
                     android:id="@+id/tasks_move_on_task_button_showAnswer"
-                    android:background="@drawable/tasks_move_on_task_buttons"
+                    android:background="@drawable/tasks_move_on_task_buttons_selector"
                     android:textAllCaps="false"
                     android:textColor="@android:color/black"
                     android:textSize="21sp"

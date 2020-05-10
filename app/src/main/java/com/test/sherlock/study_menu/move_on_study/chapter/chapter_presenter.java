@@ -28,7 +28,7 @@ public class chapter_presenter implements Interfaces.Presenter {
             if(i == 0) view.setMainTitle(current_book.getTitle());
             else{
                 String title = current_book.getTitle();
-                if(!title.equals("NULL")) {
+                if(title!=null) {
                     TextView textView_chapter_title = (TextView) inflater.inflate(R.layout.chapter_chapter_title, parent, false);
                     textView_chapter_title.setText(title);
                     view.addViewInContainer(textView_chapter_title);

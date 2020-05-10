@@ -22,7 +22,10 @@ public class chapter_model implements Interfaces.Model {
             String title = null;
             String text;
 
-            if(!c.isNull(c.getColumnIndex("title"))) title = c.getString(c.getColumnIndex("title"));
+            if(!c.isNull(c.getColumnIndex("title"))){
+                title = c.getString(c.getColumnIndex("title"));
+                if(title.equals("NULL")) title = null;
+            }
             text = c.getString(c.getColumnIndex("text"));
 
             new_book.setType(type);
