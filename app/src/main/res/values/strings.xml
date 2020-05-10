@@ -6,7 +6,6 @@
     <string name="test_rv_item_set_done">set_done</string>
 
 
-
     <string name="testV_dialog_description">Это тест на внимательность. Суть проста: 5 раз с периодом в 2 секунды Вам будут показываться картинки. Ваша задача - за предоставленное время досконально и в деталях запомнить их.\n После Вас будут ждать вопросы по содержанию картинок.\n</string>
     <string name="testV_dialogResult_description">Количество правильных ответов: %d</string>
     <string name="todo">TODO</string>

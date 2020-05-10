@@ -5,6 +5,7 @@ import android.view.View;
 import com.test.sherlock.study_menu.study_menu_view;
 import com.test.sherlock.tasks.tasks_view;
 import com.test.sherlock.test.test_view;
+import com.test.sherlock.testRP.testRP_view;
 import com.test.sherlock.testV.testV_view;
 
 public class main_presenter  implements Interfaces.Presenter{
@@ -42,6 +43,7 @@ public class main_presenter  implements Interfaces.Presenter{
             case R.id.main_card_testR:
 //                        intent = new Intent(main_view.this,act_testR.class);
 //                        startActivity(intent);
+                view.startNextActivity(testRP_view.class);
                 break;
         }
     }
