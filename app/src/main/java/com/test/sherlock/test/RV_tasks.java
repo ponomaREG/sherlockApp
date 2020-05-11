@@ -130,8 +130,8 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView task,answer1_text,answer2_text,answer3_text,answer4_text,answer5_text,status, numberOfQuestion;
-        ImageView set_done, show_answer;
+        TextView task,answer1_text,answer2_text,answer3_text,answer4_text,answer5_text, numberOfQuestion;
+        ImageView set_done, show_answer, status;
         Button check_answer;
         RadioGroup answers_block;
         RadioButton answer1_radio,answer2_radio,answer3_radio,answer4_radio,answer5_radio ,current_checked_button;

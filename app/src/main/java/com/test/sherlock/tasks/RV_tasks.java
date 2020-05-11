@@ -69,8 +69,8 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.Holder> {
     }
 
     static class Holder extends RecyclerView.ViewHolder{
-        TextView title, status, numberOfQuestion;
-        ImageView setDone,showAnswer;
+        TextView title, numberOfQuestion;
+        ImageView setDone,showAnswer, status;
          Holder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.test_rv_item_task);
