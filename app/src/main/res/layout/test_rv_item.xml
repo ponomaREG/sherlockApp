@@ -14,8 +14,27 @@
         android:textAlignment="center"
         android:text="@string/test_rv_item_status"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="24sp"
+        android:textSize="21sp"
         />
+    <LinearLayout
+        android:id="@+id/test_rv_item_numberOfTask_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:text="Задание №"/>
+        <TextView
+            android:id="@+id/test_rv_item_numberOfTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
     <ImageView
         android:id="@+id/test_rv_item_setDone"
         android:layout_margin="3dp"

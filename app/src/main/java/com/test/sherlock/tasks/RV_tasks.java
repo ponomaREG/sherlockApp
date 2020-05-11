@@ -54,6 +54,8 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.Holder> {
                 presenter.tellViewToStartNextActivity(current_task);
             }
         });
+
+        holder.numberOfQuestion.setText(String.valueOf(current_task.getId()));
     }
 
     @Override
@@ -62,7 +64,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.Holder> {
     }
 
     static class Holder extends RecyclerView.ViewHolder{
-        TextView title, status;
+        TextView title, status, numberOfQuestion;
         ImageView setDone,showAnswer;
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -70,6 +72,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.Holder> {
             showAnswer = itemView.findViewById(R.id.test_rv_item_showAnswer);
             setDone = itemView.findViewById(R.id.test_rv_item_setDone);
             status = itemView.findViewById(R.id.test_rv_item_status);
+            numberOfQuestion = itemView.findViewById(R.id.test_rv_item_numberOfTask);
         }
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,8 @@ public class RV_study extends RecyclerView.Adapter<RV_study.Holder> {
                 presenter.tellViewToStartNextActivity(current_book.getType(),current_book.getChapter());
             }
         });
+
+        holder.containerNumberOfQuestion.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -61,6 +64,7 @@ public class RV_study extends RecyclerView.Adapter<RV_study.Holder> {
     }
 
     static class Holder extends RecyclerView.ViewHolder{
+        LinearLayout containerNumberOfQuestion;
         TextView title, status;
         ImageView setDone,showAnswer;
         public Holder(@NonNull View itemView) {
@@ -69,6 +73,7 @@ public class RV_study extends RecyclerView.Adapter<RV_study.Holder> {
             showAnswer = itemView.findViewById(R.id.test_rv_item_showAnswer);
             setDone = itemView.findViewById(R.id.test_rv_item_setDone);
             status = itemView.findViewById(R.id.test_rv_item_status);
+            containerNumberOfQuestion = itemView.findViewById(R.id.test_rv_item_numberOfTask_container);
         }
     }
 }

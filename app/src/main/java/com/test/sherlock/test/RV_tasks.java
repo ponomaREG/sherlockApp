@@ -120,6 +120,8 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                     presenter_to_model.tellModelToUpdateInDataBaseStatusByID(current_task.getId(),current_task.getStatus());
                 }
             });
+
+            holder.numberOfQuestion.setText(String.valueOf(current_task.getId()));
     }
 
     @Override
@@ -128,7 +130,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView task,answer1_text,answer2_text,answer3_text,answer4_text,answer5_text,status;
+        TextView task,answer1_text,answer2_text,answer3_text,answer4_text,answer5_text,status, numberOfQuestion;
         ImageView set_done, show_answer;
         Button check_answer;
         RadioGroup answers_block;
@@ -156,6 +158,8 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
             check_answer = itemView.findViewById(R.id.test_rv_item_button_check);
 
             answers_block = itemView.findViewById(R.id.test_rv_item_radiogroup);
+
+            numberOfQuestion = itemView.findViewById(R.id.test_rv_item_numberOfTask);
 
 
             RadioButton.OnClickListener ocl = new View.OnClickListener() {
