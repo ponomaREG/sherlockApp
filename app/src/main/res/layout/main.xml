@@ -21,13 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/formuls"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:contentDescription="@string/todo" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="@android:color/black"
-        android:text="Задачи"
+        android:text="@string/main_cell_tasks"
         android:textSize="@dimen/main_card_textSize"/>
 
 </RelativeLayout>
@@ -45,14 +46,15 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:src="@drawable/main_card_test_d_icon"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:contentDescription="@string/todo" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:text="Тест на память"
+            android:text="@string/main_cell_memory"
             android:textSize="@dimen/main_card_textSize"/>
 
     </RelativeLayout>
@@ -70,14 +72,15 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:src="@drawable/main_card_test_r_icon"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/todo" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:text="Читаем людей"
+            android:text="@string/main_cell_readPeople"
             android:textSize="@dimen/main_card_textSize"/>
 
     </RelativeLayout>
@@ -95,14 +98,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:src="@drawable/main_card_test_l_icon"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/todo" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:text="Тест на логику"
+                android:text="@string/main_cell_logic"
                 android:textSize="@dimen/main_card_textSize"/>
 
         </RelativeLayout>
@@ -120,14 +124,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:src="@drawable/main_card_study_icon"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/todo" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:text="Пособия"
+                android:text="@string/main_cell_study"
                 android:textSize="@dimen/main_card_textSize"/>
 
         </RelativeLayout>

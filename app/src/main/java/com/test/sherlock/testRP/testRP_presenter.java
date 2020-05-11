@@ -2,6 +2,7 @@ package com.test.sherlock.testRP;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 
 import com.test.sherlock.objects.Task;
 
@@ -14,7 +15,7 @@ public class testRP_presenter implements Interfaces.Presenter{
     private Interfaces.View view;
     private Interfaces.Model model;
     private List<Task> tasks;
-    private int current_task = 0;
+    private int current_task = -1;
 
 
     testRP_presenter(Interfaces.View view){
@@ -28,26 +29,45 @@ public class testRP_presenter implements Interfaces.Presenter{
         nextIteration();
     }
 
-    @Override
-    public void nextIteration() {
-        if(this.current_task == tasks.size()) view.showFinishDialog();
-        else {
-            Task current_task = tasks.get(this.current_task);
-            view.setImage(current_task.getId());
-            view.setTitle(current_task.getTitle());
-            this.current_task++;
+    private void nextIteration() {
+        this.current_task++;
+        if(this.current_task == 1) view.setVisibilityOfPreviousButton(View.VISIBLE);
+        if(this.current_task == tasks.size()-1) {
+            view.setVisibilityOfNextButton(View.GONE);
         }
+        Task current_task = tasks.get(this.current_task);
+        view.setImage(current_task.getId());
+        view.setTitle(current_task.getTitle());
+
+    }
+
+    private void previousIteration(){
+        this.current_task--;
+        if(this.current_task == tasks.size() - 2)view.setVisibilityOfNextButton(View.VISIBLE);
+        if(this.current_task == 0) {
+            view.setVisibilityOfPreviousButton(View.GONE);
+//            this.current_task++;
+        }
+        Task current_task = tasks.get(this.current_task);
+        view.setImage(current_task.getId());
+        view.setTitle(current_task.getTitle());
+
     }
 
     @Override
     public void onButtonShowAnswerClick() {
-        Task current_task = tasks.get(this.current_task - 1);
+        Task current_task = tasks.get(this.current_task);
         view.showDialogWithAnswer(current_task.getCorrect_answer());
     }
 
     @Override
     public void onButtonNextClick() {
         nextIteration();
+    }
+
+    @Override
+    public void onButtonPreviousClick() {
+        previousIteration();
     }
 
 

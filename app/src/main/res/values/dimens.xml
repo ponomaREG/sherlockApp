@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_button_textSize">18sp</dimen>
+    <dimen name="dialog_desc_textSize">18sp</dimen>
+    <dimen name="dialog_title_textSize">31sp</dimen>
+
+
+    <dimen name="testRP_buttons_size">65dp</dimen>
+    <dimen name="testRP_buttons_margin">15dp</dimen>
+</resources>

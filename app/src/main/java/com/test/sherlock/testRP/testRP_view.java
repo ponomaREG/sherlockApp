@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.test.sherlock.R;
-
-import org.w3c.dom.Text;
 
 import java.util.Objects;
 
@@ -38,7 +35,8 @@ public class testRP_view extends AppCompatActivity implements Interfaces.View{
     }
 
     private void initOclToButtonsNextAndShowAnswer(){
-        Button next_iteration = findViewById(R.id.test_rp_button_next);
+        ImageView next_iteration = findViewById(R.id.test_rp_button_next);
+        ImageView previous_iteration = findViewById(R.id.test_rp_button_previous);
         Button show_answer = findViewById(R.id.test_rp_button_showAnswer);
 
         View.OnClickListener ocl = new View.OnClickListener() {
@@ -48,6 +46,9 @@ public class testRP_view extends AppCompatActivity implements Interfaces.View{
                     case R.id.test_rp_button_next:
                         presenter.onButtonNextClick();
                         break;
+                    case R.id.test_rp_button_previous:
+                        presenter.onButtonPreviousClick();
+                        break;
                     case R.id.test_rp_button_showAnswer:
                         presenter.onButtonShowAnswerClick();
                         break;
@@ -56,6 +57,7 @@ public class testRP_view extends AppCompatActivity implements Interfaces.View{
         };
 
         next_iteration.setOnClickListener(ocl);
+        previous_iteration.setOnClickListener(ocl);
         show_answer.setOnClickListener(ocl);
 
     }
@@ -112,5 +114,16 @@ public class testRP_view extends AppCompatActivity implements Interfaces.View{
         dialog.show();
     }
 
+    @Override
+    public void setVisibilityOfPreviousButton(int visibility) {
+        ImageView imageView = findViewById(R.id.test_rp_button_previous);
+        if(imageView.getVisibility() != visibility) imageView.setVisibility(visibility);
+    }
+
+    @Override
+    public void setVisibilityOfNextButton(int visibility) {
+        ImageView imageView = findViewById(R.id.test_rp_button_next);
+        if(imageView.getVisibility() != visibility) imageView.setVisibility(visibility);
+    }
 
 }

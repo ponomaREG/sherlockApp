@@ -14,13 +14,15 @@ public interface Interfaces {
         void setTitle(String title);
         void showDialogWithAnswer(String answer);
         void showFinishDialog();
+        void setVisibilityOfPreviousButton(int visibilty);
+        void setVisibilityOfNextButton(int visibility);
     }
 
     interface Presenter{
         void initSession();
-        void nextIteration();
         void onButtonShowAnswerClick();
         void onButtonNextClick();
+        void onButtonPreviousClick();
         Drawable getImageFromAssets(Context context,int id);
     }
 

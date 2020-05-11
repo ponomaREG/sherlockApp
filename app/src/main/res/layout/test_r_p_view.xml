@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,28 +21,40 @@
         android:layout_marginTop="35dp"
         android:scaleType="fitXY"
         android:layout_width="match_parent"
-        android:layout_height="250dp"/>
+        android:layout_height="250dp"
+        android:contentDescription="@string/todo" />
         <Button
             android:id="@+id/test_rp_button_showAnswer"
             android:layout_marginTop="45dp"
             android:textColor="@android:color/black"
             android:textSize="31sp"
-            android:text="Узнать ответ"
+            android:text="@string/testRP_button_showAnswer"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/tasks_move_on_task_buttons_selector"/>
-        <Button
-            android:id="@+id/test_rp_button_next"
-            android:layout_marginTop="15dp"
-            android:textColor="@android:color/black"
-            android:textSize="31sp"
-            android:text="Дальше"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/tasks_move_on_task_buttons_selector"/>
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/test_rp_button_previous"
+                android:visibility="gone"
+                android:layout_margin="@dimen/testRP_buttons_margin"
+                android:layout_width="@dimen/dialog_button_textSize"
+                android:layout_height="@dimen/testRP_buttons_size"
+                android:src="@drawable/arrow_left"
+                android:contentDescription="@string/todo" />
+            <ImageView
+                android:id="@+id/test_rp_button_next"
+                android:layout_margin="@dimen/testRP_buttons_margin"
+                android:layout_width="@dimen/testRP_buttons_size"
+                android:layout_height="@dimen/testRP_buttons_size"
+                android:src="@drawable/arrow_right"
+                android:contentDescription="@string/todo" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
