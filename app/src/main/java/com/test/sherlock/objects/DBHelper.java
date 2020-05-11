@@ -150,7 +150,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor getQuestionsAndAnswerForTestAtt(int count){
+    public Cursor getQuestionsAndAnswerForTestAtt(int count, int type){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String sql_get_answers_and_questions_test_att = "select * from (select * from answersAtt order by random()) group by ref_q order by random() LIMIT %s;";
         Cursor c = sqLiteDatabase.rawQuery(String.format(sql_get_answers_and_questions_test_att,count),null);

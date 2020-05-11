@@ -17,6 +17,7 @@ public interface Interfaces {
         void getAdapter(Context context);
         interface connectionBetweenRVandView{
             void tellViewToStartNextActivity(Task task);
+            void tellRVtoSetNewStatusAt(int position,int status);
         }
     }
 

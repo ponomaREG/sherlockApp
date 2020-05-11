@@ -13,6 +13,8 @@ public class move_on_task_presenter implements Interfaces.Presenter {
 
     private String answer;
     private int id;
+    private int position;
+    private boolean hasStatusChanged = false;
 
     move_on_task_presenter(Interfaces.View view){
         this.view = view;
@@ -28,12 +30,14 @@ public class move_on_task_presenter implements Interfaces.Presenter {
     public void OnSetDoneClick() {
         model.updateStatusByID(id);
         view.setStatusDone();
+        hasStatusChanged = true;
     }
 
     @Override
-    public void setDataAboutTask(String title, String task, String answer, int status, int id) {
+    public void setDataAboutTask(String title, String task, String answer, int status, int id, int position) {
         this.answer = answer;
         this.id = id;
+        this.position = position;
     }
 
     @Override
@@ -49,5 +53,17 @@ public class move_on_task_presenter implements Interfaces.Presenter {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public int hasStatusChangedToInt() {
+        int result = 0;
+        if(this.hasStatusChanged) result = 1;
+        return result;
+    }
+
+    @Override
+    public int getPositionAtParentRV() {
+        return this.position;
     }
 }

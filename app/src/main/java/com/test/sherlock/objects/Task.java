@@ -6,6 +6,7 @@ public class Task {
     private int status;
     private int id;
     private int section;
+    private int position;
 
     public Task setSection(int section) {
         this.section = section;
@@ -120,5 +121,13 @@ public class Task {
 
     public int getId() {
         return id;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

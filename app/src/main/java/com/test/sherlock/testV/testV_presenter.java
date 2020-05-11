@@ -84,8 +84,8 @@ public class testV_presenter implements Interfaces.Presenter{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return context.getDrawable(R.drawable.ex);
-    }
+        return null; //TODO: Ошибочное изображение
+         }
 
     class Timer extends CountDownTimer{
 

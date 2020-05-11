@@ -15,8 +15,10 @@ public interface Interfaces {
     interface Presenter{
         void OnShowAnswerClick();
         void OnSetDoneClick();
-        void setDataAboutTask(String title, String task, String answer, int status , int id);
+        void setDataAboutTask(String title, String task, String answer, int status , int id, int position);
         void getImage(Context context);
+        int hasStatusChangedToInt();
+        int getPositionAtParentRV();
     }
 
     interface Model{

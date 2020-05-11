@@ -1,5 +1,6 @@
 package com.test.sherlock.tasks;
 
+import android.app.PendingIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         final Task current_task = tasks.get(position);
+        current_task.setPosition(position);
 
         holder.title.setText(current_task.getTitle());
         holder.showAnswer.setVisibility(View.INVISIBLE);
@@ -61,10 +63,15 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.Holder> {
         return tasks.size();
     }
 
+    void setNewStatusToTaskAt(int position,int status){
+        Task task = tasks.get(position);
+        task.setStatus(status);
+    }
+
     static class Holder extends RecyclerView.ViewHolder{
         TextView title, status, numberOfQuestion;
         ImageView setDone,showAnswer;
-        Holder(@NonNull View itemView) {
+         Holder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.test_rv_item_task);
             showAnswer = itemView.findViewById(R.id.test_rv_item_showAnswer);

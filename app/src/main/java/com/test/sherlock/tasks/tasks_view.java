@@ -1,5 +1,6 @@
 package com.test.sherlock.tasks;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.test.sherlock.R;
 import com.test.sherlock.objects.Task;
@@ -56,7 +58,22 @@ public class tasks_view extends AppCompatActivity implements Interfaces.View{
         intent.putExtra("answer", task.getAnswer());
         intent.putExtra("status", task.getStatus());
         intent.putExtra("id", task.getId());
-        startActivity(intent);
+        intent.putExtra("position",task.getPosition());
+        startActivityForResult(intent,1);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(data != null) {
+            Log.d("ACTIVITYRESULT","1");
+            int result = data.getIntExtra("status", -1);
+            int position = data.getIntExtra("position",-1);
+            if((result == 1)&&(position != -1)){
+                ((Interfaces.Presenter.connectionBetweenRVandView) presenter).tellRVtoSetNewStatusAt(position,1);
+            }
+        }
+
+
+    }
 }

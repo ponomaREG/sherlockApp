@@ -44,8 +44,9 @@ public class move_on_task_view extends AppCompatActivity implements Interfaces.V
         String answer = intent.getStringExtra("answer");
         int status = intent.getIntExtra("status",-1);
         int id = intent.getIntExtra("id",-1);
+        int position = intent.getIntExtra("position",-1);
 
-        presenter.setDataAboutTask(title,task,answer,status,id);
+        presenter.setDataAboutTask(title,task,answer,status,id,position);
 
         if(task != null) {
             setText(task);
@@ -112,5 +113,14 @@ public class move_on_task_view extends AppCompatActivity implements Interfaces.V
     public void setImage(Drawable drawable) {
         ImageView image_v = findViewById(R.id.tasks_move_on_task_image);
         image_v.setImageDrawable(drawable);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent result = new Intent();
+        result.putExtra("position",presenter.getPositionAtParentRV());
+        result.putExtra("status",presenter.hasStatusChangedToInt());
+        setResult(RESULT_OK,result);
+        super.onBackPressed();
     }
 }
