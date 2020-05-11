@@ -3,7 +3,6 @@ package com.test.sherlock.testRP;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import com.test.sherlock.R;
 import com.test.sherlock.objects.Task;
 
 import java.io.IOException;
