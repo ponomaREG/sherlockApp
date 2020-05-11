@@ -89,7 +89,7 @@ public class testV_presenter implements Interfaces.Presenter{
 
     class Timer extends CountDownTimer{
 
-        public Timer(long millisInFuture, long countDownInterval) {
+        Timer(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
 

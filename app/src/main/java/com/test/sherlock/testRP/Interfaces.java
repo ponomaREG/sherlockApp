@@ -13,7 +13,7 @@ public interface Interfaces {
         void setImage(int id);
         void setTitle(String title);
         void showDialogWithAnswer(String answer);
-        void showFinishDialog();
+//        void showFinishDialog();
         void setVisibilityOfPreviousButton(int visibilty);
         void setVisibilityOfNextButton(int visibility);
     }

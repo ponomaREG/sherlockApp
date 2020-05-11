@@ -3,15 +3,16 @@ package com.test.sherlock.objects;
 public class Book {
 
     private String title, text;
-    private int page, type, chapter;
+    private int  type, chapter;
+//    private int page;
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setPage(int page) {
-        this.page = page;
-    }
+//    public void setPage(int page) {
+//        this.page = page;
+//    }
 
     public void setType(int type) {
         this.type = type;
@@ -29,9 +30,9 @@ public class Book {
         return title;
     }
 
-    public int getPage() {
-        return page;
-    }
+//    public int getPage() {
+//        return page;
+//    }
 
     public int getType() {
         return type;

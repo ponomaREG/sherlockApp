@@ -15,7 +15,6 @@ public interface Interfaces {
 
     interface Presenter{
         void getAdapter(Context context, int type);
-        void OnChapterClick(android.view.View v);
 
         interface connectionBetweenRVandView{
             void tellViewToStartNextActivity(int type, int chapter);

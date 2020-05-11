@@ -95,7 +95,7 @@ public class testRP_view extends AppCompatActivity implements Interfaces.View{
         dialog.show();
     }
 
-    @Override
+    @Deprecated
     public void showFinishDialog() {
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.test_rv_item_desc_dialog);

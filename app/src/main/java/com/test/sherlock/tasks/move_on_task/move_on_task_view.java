@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.test.sherlock.R;
-import com.test.sherlock.objects.Task;
 
 import java.util.Objects;
 

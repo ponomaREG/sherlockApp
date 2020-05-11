@@ -20,11 +20,6 @@ public class move_on_study_presenter implements Interfaces.Presenter, Interfaces
     }
 
     @Override
-    public void OnChapterClick(android.view.View v) {
-
-    }
-
-    @Override
     public void tellViewToStartNextActivity(int type, int chapter) {
         view.startNextActivity(type, chapter);
     }

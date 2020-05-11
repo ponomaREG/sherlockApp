@@ -1,6 +1,5 @@
 package com.test.sherlock.study_menu.move_on_study;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +66,7 @@ public class RV_study extends RecyclerView.Adapter<RV_study.Holder> {
         LinearLayout containerNumberOfQuestion;
         TextView title, status;
         ImageView setDone,showAnswer;
-        public Holder(@NonNull View itemView) {
+        Holder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.test_rv_item_task);
             showAnswer = itemView.findViewById(R.id.test_rv_item_showAnswer);

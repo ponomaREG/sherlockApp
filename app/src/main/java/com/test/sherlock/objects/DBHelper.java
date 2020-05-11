@@ -1,5 +1,6 @@
 package com.test.sherlock.objects;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -20,17 +21,11 @@ public class DBHelper extends SQLiteOpenHelper {
     private SQLiteDatabase mDataBase;
     private boolean mNeedUpdate = true;
     private Context context;
+    @SuppressLint("StaticFieldLeak")
     private static DBHelper instance;
 
 
-
-    private final String sql_get_tasks = "select * from %s;",
-            sql_get_answer_by_id = "select * from %s where id = %s;",
-            sql_update_status = "update testL set status=%s where id = %s;",
-            sql_get_text_of_book_by_chapter = "select * from study where (chapter = %s and type = %s);",
-            sql_get_answers_and_questions_test_att = "select * from (select * from answersAtt order by random()) group by ref_q order by random() LIMIT %s;",
-            sql_get_chapters_of_book = "select * from %s where (type = %s and title like 'Глава%%');";
-
+//    private final String sql_update_status = "update testL set status=%s where id = %s;";
 
 
     public DBHelper(Context context){
@@ -44,7 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return instance;
     }
 
-    public void updateDataBase(){
+    private void updateDataBase(){
         if (mNeedUpdate) {
             Log.d("UPDATE","123");
             File dbFile = new File(DB_PATH + DB_NAME);
@@ -55,7 +50,7 @@ public class DBHelper extends SQLiteOpenHelper {
             mNeedUpdate = false;
         }
     }
-    public boolean checkDataBase() {
+    private boolean checkDataBase() {
         File dbFile = new File(DB_PATH + DB_NAME);
         Log.d("EXIST",dbFile.exists()+"");
         return dbFile.exists();
@@ -112,6 +107,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getTasksFromDb(String table){
         SQLiteDatabase sql_db = this.getReadableDatabase();
+        String sql_get_tasks = "select * from %s;";
         Cursor c = sql_db.rawQuery(String.format(sql_get_tasks,table),null);
         c.moveToFirst();
         sql_db.close();
@@ -120,6 +116,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getAnswerByID(String table, int id){
         SQLiteDatabase sql_db = this.getReadableDatabase();
+        String sql_get_answer_by_id = "select * from %s where id = %s;";
         Cursor c = sql_db.rawQuery(String.format(sql_get_answer_by_id,table,id),null);
         c.moveToFirst();
         return c;
@@ -134,6 +131,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getStudyBookChapters(String table,int type){
 
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String sql_get_chapters_of_book = "select * from %s where (type = %s and title like 'Глава%%');";
         String query = String.format(sql_get_chapters_of_book,table,type);
         query = query.replace("%%","%");
         Cursor c = sqLiteDatabase.rawQuery(query,null);
@@ -144,6 +142,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getChapterTextByTypeAndChapter(int type, int chapter){
         SQLiteDatabase sql_db = this.getReadableDatabase();
+        String sql_get_text_of_book_by_chapter = "select * from study where (chapter = %s and type = %s);";
         Cursor c = sql_db.rawQuery(String.format(sql_get_text_of_book_by_chapter, chapter, type),null);
         c.moveToFirst();
         sql_db.close();
@@ -151,8 +150,9 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor getQuestionsAndAnswerForTestAtt(int count, int type){
+    public Cursor getQuestionsAndAnswerForTestAtt(int count){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String sql_get_answers_and_questions_test_att = "select * from (select * from answersAtt order by random()) group by ref_q order by random() LIMIT %s;";
         Cursor c = sqLiteDatabase.rawQuery(String.format(sql_get_answers_and_questions_test_att,count),null);
         c.moveToFirst();
         sqLiteDatabase.close();

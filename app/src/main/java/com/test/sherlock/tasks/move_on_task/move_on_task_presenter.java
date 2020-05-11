@@ -11,8 +11,8 @@ public class move_on_task_presenter implements Interfaces.Presenter {
     private Interfaces.View view;
     private Interfaces.Model model;
 
-    private String title,text,answer;
-    private int status,id;
+    private String answer;
+    private int id;
 
     move_on_task_presenter(Interfaces.View view){
         this.view = view;
@@ -33,9 +33,6 @@ public class move_on_task_presenter implements Interfaces.Presenter {
     @Override
     public void setDataAboutTask(String title, String task, String answer, int status, int id) {
         this.answer = answer;
-        this.text = task;
-        this.title = title;
-        this.status = status;
         this.id = id;
     }
 

@@ -21,28 +21,18 @@ public class main_presenter  implements Interfaces.Presenter{
     public void OnSectionClick(View v) {
         switch (v.getId()){
             case R.id.main_card_study:
-//                        intent = new Intent(main_view.this,act_study.class);
-//                        startActivity(intent);
                 view.startNextActivity(study_menu_view.class);
                 break;
             case R.id.main_card_tasks:
-//                        intent = new Intent(main_view.this,act_tasks.class);
-//                        startActivity(intent);
                 view.startNextActivity(tasks_view.class);
                 break;
             case R.id.main_card_testD:
-//                        intent = new Intent(main_view.this,act_testD.class);
-//                        startActivity(intent);
                 view.startNextActivity(testV_view.class);
                 break;
             case R.id.main_card_testL:
-//                        intent = new Intent(main_view.this,act_testL.class);
-//                        startActivity(intent);
                 view.startNextActivity(test_view.class);
                 break;
             case R.id.main_card_testR:
-//                        intent = new Intent(main_view.this,act_testR.class);
-//                        startActivity(intent);
                 view.startNextActivity(testRP_view.class);
                 break;
         }

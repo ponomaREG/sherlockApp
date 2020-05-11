@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.test.sherlock.R;
 import com.test.sherlock.study_menu.move_on_study.chapter.chapter_view;
