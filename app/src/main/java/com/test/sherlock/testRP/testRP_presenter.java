@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
+import com.test.sherlock.R;
 import com.test.sherlock.objects.Task;
 
 import java.io.IOException;
@@ -81,7 +82,7 @@ public class testRP_presenter implements Interfaces.Presenter{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return context.getDrawable(R.drawable.error_image);
     }
 
 }

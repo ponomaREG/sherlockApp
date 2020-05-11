@@ -44,7 +44,7 @@
                 android:id="@+id/test_rp_button_previous"
                 android:visibility="gone"
                 android:layout_margin="@dimen/testRP_buttons_margin"
-                android:layout_width="@dimen/dialog_button_textSize"
+                android:layout_width="@dimen/testRP_buttons_size"
                 android:layout_height="@dimen/testRP_buttons_size"
                 android:src="@drawable/arrow_left"
                 android:contentDescription="@string/todo" />
