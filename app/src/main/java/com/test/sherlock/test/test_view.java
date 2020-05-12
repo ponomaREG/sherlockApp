@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.test.sherlock.R;
+import com.test.sherlock.objects.Adv;
 
 import java.util.Objects;
 
@@ -79,5 +80,11 @@ public class test_view extends AppCompatActivity implements Interfaces.View{
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Adv.iterationAd();
     }
 }

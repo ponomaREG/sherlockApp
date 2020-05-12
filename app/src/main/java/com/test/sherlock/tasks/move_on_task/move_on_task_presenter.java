@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.test.sherlock.R;
+import com.test.sherlock.objects.Adv;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,10 +22,13 @@ public class move_on_task_presenter implements Interfaces.Presenter {
     move_on_task_presenter(Interfaces.View view){
         this.view = view;
         this.model = new move_on_task_model();
+
+
     }
 
     @Override
     public void OnShowAnswerClick() {
+        Adv.showAdWithLoadedWith33PercentChance();
         view.showDialogWithAnswer(answer);
     }
 
@@ -69,4 +73,5 @@ public class move_on_task_presenter implements Interfaces.Presenter {
     public int getPositionAtParentRV() {
         return this.position;
     }
+
 }

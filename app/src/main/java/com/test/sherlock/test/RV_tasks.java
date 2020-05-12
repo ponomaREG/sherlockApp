@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.test.sherlock.R;
+import com.test.sherlock.objects.Adv;
 import com.test.sherlock.objects.Task;
 
 import java.util.List;
@@ -71,6 +72,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
                             presenter_to_view.tellViewToShowMessageThatUserDoesNotChooseAnswer();
                         }
                         else{
+                            Adv.iterationAd();
                             int checked_radio_button_id = holder.current_checked_button.getId();
                             String answer = null;
                             switch (checked_radio_button_id){
@@ -107,6 +109,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
             holder.show_answer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Adv.showAdWithLoadedWith33PercentChance();
                     presenter_to_view.tellViewToShowDialogWithDescAnswer(current_task.getAnswer());
                 }
             });

@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.test.sherlock.objects.Adv;
 import com.test.sherlock.objects.DBHelper;
 
 public class main_view extends AppCompatActivity implements Interfaces.View{
@@ -19,6 +23,7 @@ public class main_view extends AppCompatActivity implements Interfaces.View{
         setContentView(R.layout.main);
 
         initPresenter();
+        initMobileAds();
         initOclToCardsMenu();
         initInstanceOfDB();
     }
@@ -64,4 +69,16 @@ public class main_view extends AppCompatActivity implements Interfaces.View{
         Intent intent = new Intent(this,cls);
         startActivity(intent);
     }
+
+    private void initMobileAds(){
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+            }
+        });
+
+        Adv.initInstanceOfAds(this);
+    }
+
 }

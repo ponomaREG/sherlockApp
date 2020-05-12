@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.test.sherlock.R;
+import com.test.sherlock.objects.Adv;
 import com.test.sherlock.study_menu.move_on_study.move_on_study_view;
 
 public class study_menu_view extends AppCompatActivity implements Interfaces.View{
@@ -50,5 +51,11 @@ public class study_menu_view extends AppCompatActivity implements Interfaces.Vie
         Intent intent = new Intent(this, move_on_study_view.class);
         intent.putExtra("type",type);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Adv.iterationAd();
     }
 }
