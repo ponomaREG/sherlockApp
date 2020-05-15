@@ -57,7 +57,7 @@ public class move_on_task_presenter implements Interfaces.Presenter {
             view.setImage(drawable);
         } catch (IOException e) {
             e.printStackTrace();
-            view.setImage(context.getDrawable(R.drawable.error_image));
+            view.setVisibilityInvisibleOfImageViewOfAvatar();
         }
 
     }

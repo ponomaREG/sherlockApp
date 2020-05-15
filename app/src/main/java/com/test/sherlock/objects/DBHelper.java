@@ -39,7 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return instance;
     }
 
-    private void updateDataBase(){
+    public void updateDataBase(){
         if (mNeedUpdate) {
             Log.d("UPDATE","123");
             File dbFile = new File(DB_PATH + DB_NAME);

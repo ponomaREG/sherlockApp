@@ -118,6 +118,12 @@ public class move_on_task_view extends AppCompatActivity implements Interfaces.V
     }
 
     @Override
+    public void setVisibilityInvisibleOfImageViewOfAvatar() {
+        ImageView image_v = findViewById(R.id.tasks_move_on_task_image);
+        image_v.setVisibility(View.GONE);
+    }
+
+    @Override
     public void onBackPressed() {
         Intent result = new Intent();
         result.putExtra("position",presenter.getPositionAtParentRV());

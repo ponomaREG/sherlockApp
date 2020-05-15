@@ -10,6 +10,7 @@ public interface Interfaces {
         void showDialogWithAnswer(String answer);
         void setStatusDone();
         void setImage(Drawable drawable);
+        void setVisibilityInvisibleOfImageViewOfAvatar();
     }
 
     interface Presenter{
