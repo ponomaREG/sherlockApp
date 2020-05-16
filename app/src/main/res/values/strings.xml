@@ -27,4 +27,11 @@
 
     <string name="dialog_title">Описание</string>
     <string name="dialog_button">Понятно</string>
+    <string name="main_card_tasks">Детективные задачи</string>
+    <string name="main_card_memory">Развитие памяти</string>
+    <string name="main_card_nonVerbal">Невербалика</string>
+    <string name="main_card_logic">Логические задания</string>
+    <string name="main_card_study">Пособия</string>
+    <string name="study_card_book">Думай как Шерлок (книга)</string>
+    <string name="study_card_palaceMemory">Дворец памяти</string>
 </resources>

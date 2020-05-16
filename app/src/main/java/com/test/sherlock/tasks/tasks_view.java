@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.test.sherlock.R;
 import com.test.sherlock.objects.Adv;
+import com.test.sherlock.objects.DialogDesc;
 import com.test.sherlock.objects.Task;
 import com.test.sherlock.tasks.move_on_task.move_on_task_view;
 
@@ -81,5 +82,6 @@ public class tasks_view extends AppCompatActivity implements Interfaces.View{
     protected void onStart() {
         super.onStart();
         Adv.iterationAd();
+        DialogDesc.startDialogWithOfferToSetMarkWithChance(this);
     }
 }

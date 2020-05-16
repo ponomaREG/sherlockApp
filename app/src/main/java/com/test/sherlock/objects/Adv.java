@@ -8,7 +8,6 @@ import com.google.android.gms.ads.InterstitialAd;
 import java.util.Random;
 
 public class Adv {
-    private static String id_ad = "ca-app-pub-7354052962832258/1118758631";
     private static InterstitialAd mInterstitialAd;
     private static int count_of_tasks;
     private static final int PLATO = 10;
@@ -21,8 +20,9 @@ public class Adv {
 
     public static void initInstanceOfAds(Context context){
         mInterstitialAd = new InterstitialAd(context);
-        String id_ad_test = "ca-app-pub-3940256099942544/1033173712";
-        mInterstitialAd.setAdUnitId(id_ad_test);
+//        String id_ad_test = "ca-app-pub-3940256099942544/1033173712";
+        String id_ad = "ca-app-pub-7354052962832258/1118758631";
+        mInterstitialAd.setAdUnitId(id_ad);
     }
 
 //    public static InterstitialAd getInstance(){

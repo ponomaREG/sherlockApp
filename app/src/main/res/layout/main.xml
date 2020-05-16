@@ -27,6 +27,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
             android:src="@drawable/main_card_tasks_icon"/>
 
     </LinearLayout>
@@ -43,7 +44,7 @@
             android:textSize="@dimen/main_card_textSize"
             android:gravity="center"
             android:textAlignment="center"
-            android:text="Детективные задачи"/>
+            android:text="@string/main_card_tasks"/>
 
     </LinearLayout>
 
@@ -72,6 +73,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/todo"
                 android:src="@drawable/main_card_memory_icon"/>
 
         </LinearLayout>
@@ -88,7 +90,7 @@
                 android:textSize="@dimen/main_card_textSize"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:text="Развитие памяти"/>
+                android:text="@string/main_card_memory"/>
 
         </LinearLayout>
 
@@ -117,6 +119,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/todo"
                 android:src="@drawable/main_card_non_verb_icon"/>
 
         </LinearLayout>
@@ -133,7 +136,7 @@
                 android:textSize="@dimen/main_card_textSize"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:text="Невербалика"/>
+                android:text="@string/main_card_nonVerbal"/>
 
         </LinearLayout>
 
@@ -159,6 +162,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/main_card_login_icon"/>
 
             </LinearLayout>
@@ -175,7 +179,7 @@
                     android:textSize="@dimen/main_card_textSize"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Логические задания"/>
+                    android:text="@string/main_card_logic"/>
 
             </LinearLayout>
 
@@ -201,6 +205,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/main_card_study_icon"/>
 
             </LinearLayout>
@@ -217,7 +222,7 @@
                     android:textSize="@dimen/main_card_textSize"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Пособия"/>
+                    android:text="@string/main_card_study"/>
 
             </LinearLayout>
 

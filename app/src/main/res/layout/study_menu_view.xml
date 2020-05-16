@@ -29,6 +29,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/study_book_icon"/>
 
             </LinearLayout>
@@ -45,7 +46,7 @@
                     android:textSize="@dimen/main_card_textSize"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Думай как Шерлок (книга)"/>
+                    android:text="@string/study_card_book"/>
 
             </LinearLayout>
 
@@ -72,6 +73,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/study_palace_icon"/>
 
             </LinearLayout>
@@ -88,7 +90,7 @@
                     android:textSize="@dimen/main_card_textSize"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Дворец памяти"/>
+                    android:text="@string/study_card_palaceMemory"/>
 
             </LinearLayout>
 
