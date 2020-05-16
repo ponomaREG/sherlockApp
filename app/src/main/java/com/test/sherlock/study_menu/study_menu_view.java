@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.test.sherlock.R;
@@ -31,8 +32,8 @@ public class study_menu_view extends AppCompatActivity implements Interfaces.Vie
     }
 
     private void initOclToCards(){
-        RelativeLayout rl_book = findViewById(R.id.study_menu_book_sh);
-        RelativeLayout rl_memory = findViewById(R.id.study_menu_memory);
+        LinearLayout rl_book = findViewById(R.id.study_menu_book_sh);
+        LinearLayout rl_memory = findViewById(R.id.study_menu_memory);
 
         View.OnClickListener ocl = new View.OnClickListener(){
 

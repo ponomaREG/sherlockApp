@@ -9,51 +9,90 @@
         android:layout_height="wrap_content"
         android:padding="20dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/study_menu_book_sh"
             android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/main_card_width"
+            android:layout_height="@dimen/main_card_height"
+            android:layout_centerHorizontal="true"
             android:padding="3dp"
+            android:orientation="vertical"
+
             android:gravity="center"
             android:background="@drawable/main_item_card">
-            <ImageView
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="fitXY"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textColor="@android:color/black"
-                android:textAlignment="center"
-                android:text="Думай как Шерлок"
-                android:textSize="@dimen/main_card_textSize"/>
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/study_book_icon"/>
 
-        </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/main_card_textSize"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="Думай как Шерлок (книга)"/>
 
-        <RelativeLayout
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/study_menu_memory"
             android:layout_below="@id/study_menu_book_sh"
             android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/main_card_width"
+            android:layout_height="@dimen/main_card_height"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+
             android:padding="3dp"
             android:gravity="center"
             android:background="@drawable/main_item_card">
-            <ImageView
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="fitXY"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textColor="@android:color/black"
-                android:text="Дворец памяти"
-                android:textSize="@dimen/main_card_textSize"/>
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/study_palace_icon"/>
 
-        </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/main_card_textSize"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="Дворец памяти"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     </RelativeLayout>

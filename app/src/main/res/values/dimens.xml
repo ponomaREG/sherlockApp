@@ -9,6 +9,6 @@
     <dimen name="testRP_buttons_margin">15dp</dimen>
 
     <dimen name="main_card_textSize">31sp</dimen>
-    <dimen name="main_card_width">280dp</dimen>
+    <dimen name="main_card_width">300dp</dimen>
     <dimen name="main_card_height">180dp</dimen>
 </resources>
