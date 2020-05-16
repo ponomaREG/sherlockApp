@@ -1,5 +1,6 @@
 package com.test.sherlock.test;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,7 +10,9 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,7 @@ public class test_view extends AppCompatActivity implements Interfaces.View{
 
         initPresenter();
         initRV();
+        prepareView();
     }
 
     private void initPresenter(){
@@ -39,6 +43,23 @@ public class test_view extends AppCompatActivity implements Interfaces.View{
         presenter.getAdapter(this);
     }
 
+    private void prepareView(){
+        ActionBar actionBar = getSupportActionBar();
+
+        assert actionBar != null;
+        actionBar.setDisplayShowTitleEnabled(false);
+        ImageView image_logo_in_actionbar = new ImageView(actionBar.getThemedContext());
+        image_logo_in_actionbar.setScaleType(ImageView.ScaleType.FIT_XY);
+        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+                120,
+                120,
+                Gravity.CENTER
+        );
+        image_logo_in_actionbar.setLayoutParams(lp);
+        image_logo_in_actionbar.setImageDrawable(getDrawable(R.drawable.main_card_login_icon));
+        actionBar.setCustomView(image_logo_in_actionbar);
+        actionBar.setDisplayShowCustomEnabled(true);
+    }
 
     @Override
     public void showToastCorrectAnswer() {

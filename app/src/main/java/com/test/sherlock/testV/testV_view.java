@@ -1,5 +1,6 @@
 package com.test.sherlock.testV;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -7,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,6 +30,7 @@ public class testV_view extends AppCompatActivity implements Interfaces.View{
 
         initPresenter();
         initOclToButtons();
+        prepareView();
     }
 
     private void initPresenter(){
@@ -51,6 +54,24 @@ public class testV_view extends AppCompatActivity implements Interfaces.View{
         answer2_v.setOnClickListener(ocl);
         answer3_v.setOnClickListener(ocl);
         answer4_v.setOnClickListener(ocl);
+    }
+
+    private void prepareView(){
+        ActionBar actionBar = getSupportActionBar();
+
+        assert actionBar != null;
+        actionBar.setDisplayShowTitleEnabled(false);
+        ImageView image_logo_in_actionbar = new ImageView(actionBar.getThemedContext());
+        image_logo_in_actionbar.setScaleType(ImageView.ScaleType.FIT_XY);
+        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+                120,
+                120,
+                Gravity.CENTER
+        );
+        image_logo_in_actionbar.setLayoutParams(lp);
+        image_logo_in_actionbar.setImageDrawable(getDrawable(R.drawable.main_card_memory_icon));
+        actionBar.setCustomView(image_logo_in_actionbar);
+        actionBar.setDisplayShowCustomEnabled(true);
     }
 
 

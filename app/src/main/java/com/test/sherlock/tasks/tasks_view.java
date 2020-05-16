@@ -1,6 +1,7 @@
 package com.test.sherlock.tasks;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.ImageView;
 
 import com.test.sherlock.R;
 import com.test.sherlock.objects.Adv;
@@ -30,6 +33,7 @@ public class tasks_view extends AppCompatActivity implements Interfaces.View{
 
         initPresenter();
         initRV();
+        prepareView();
     }
 
     private void initPresenter(){
@@ -38,6 +42,24 @@ public class tasks_view extends AppCompatActivity implements Interfaces.View{
 
     private void initRV(){
         presenter.getAdapter(this);
+    }
+
+    private void prepareView(){
+        ActionBar actionBar = getSupportActionBar();
+
+        assert actionBar != null;
+        actionBar.setDisplayShowTitleEnabled(false);
+        ImageView image_logo_in_actionbar = new ImageView(actionBar.getThemedContext());
+        image_logo_in_actionbar.setScaleType(ImageView.ScaleType.FIT_XY);
+        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+                120,
+                120,
+                Gravity.CENTER
+        );
+        image_logo_in_actionbar.setLayoutParams(lp);
+        image_logo_in_actionbar.setImageDrawable(getDrawable(R.drawable.main_card_tasks_icon));
+        actionBar.setCustomView(image_logo_in_actionbar);
+        actionBar.setDisplayShowCustomEnabled(true);
     }
 
     @Override

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">sherlock</string>
+    <string name="app_name">Думай как Шерлок!</string>
     <string name="test_rv_item_status">Уже решено</string>
     <string name="test_rv_item_button_check">Проверить</string>
     <string name="test_rv_item_show_answer">show answer</string>

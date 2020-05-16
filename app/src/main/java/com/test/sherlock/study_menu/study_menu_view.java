@@ -1,10 +1,13 @@
 package com.test.sherlock.study_menu;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.test.sherlock.R;
@@ -22,6 +25,7 @@ public class study_menu_view extends AppCompatActivity implements Interfaces.Vie
 
         initPresenter();
         initOclToCards();
+        prepareView();
     }
 
 
@@ -43,6 +47,23 @@ public class study_menu_view extends AppCompatActivity implements Interfaces.Vie
 
         rl_book.setOnClickListener(ocl);
         rl_memory.setOnClickListener(ocl);
+    }
+
+    private void prepareView(){
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayShowTitleEnabled(false);
+        ImageView image_logo_in_actionbar = new ImageView(actionBar.getThemedContext());
+        image_logo_in_actionbar.setScaleType(ImageView.ScaleType.FIT_XY);
+        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+                120,
+                120,
+                Gravity.CENTER
+        );
+        image_logo_in_actionbar.setLayoutParams(lp);
+        image_logo_in_actionbar.setImageDrawable(getDrawable(R.drawable.main_card_study_icon));
+        actionBar.setCustomView(image_logo_in_actionbar);
+        actionBar.setDisplayShowCustomEnabled(true);
     }
 
     @Override

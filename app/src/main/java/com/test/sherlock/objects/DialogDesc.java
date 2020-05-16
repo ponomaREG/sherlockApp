@@ -33,7 +33,7 @@ public class DialogDesc {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String appPackageName = "com.test.mensa";
+                final String appPackageName = "com.test.sherlock";
                 try {
                     context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
                 } catch (android.content.ActivityNotFoundException anfe) {
