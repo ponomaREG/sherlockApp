@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -34,7 +34,7 @@ public class main_view extends AppCompatActivity implements Interfaces.View{
     }
 
     private void initOclToCardsMenu(){
-        RelativeLayout testR, testL, testD, tasks, study;
+        LinearLayout testR, testL, testD, tasks, study;
 
         testD = findViewById(R.id.main_card_testD);
         testL = findViewById(R.id.main_card_testL);

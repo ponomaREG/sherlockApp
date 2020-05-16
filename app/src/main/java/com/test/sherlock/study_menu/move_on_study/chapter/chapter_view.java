@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.test.sherlock.R;
+import com.test.sherlock.objects.Adv;
 
 public class chapter_view extends AppCompatActivity implements Interfaces.View{
 
@@ -48,5 +49,11 @@ public class chapter_view extends AppCompatActivity implements Interfaces.View{
     public void addViewInContainer(View v) {
         LinearLayout container = findViewById(R.id.move_on_task_chapter_container);
         container.addView(v);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Adv.showAdWithoutChance();
     }
 }

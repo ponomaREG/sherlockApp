@@ -9,138 +9,219 @@
         android:layout_height="wrap_content"
         android:padding="20dp">
 
-<RelativeLayout
+<LinearLayout
     android:id="@+id/main_card_tasks"
     android:layout_margin="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_width="@dimen/main_card_width"
+    android:layout_height="@dimen/main_card_height"
     android:padding="3dp"
-    android:gravity="center"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
     android:background="@drawable/main_item_card">
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_card_tasks_icon"/>
 
     </LinearLayout>
-    <ImageView
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:background="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/formuls"
-        android:scaleType="fitXY"
-        android:contentDescription="@string/todo" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@android:color/black"
-        android:text="@string/main_cell_tasks"
-        android:textSize="@dimen/main_card_textSize"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/main_card_textSize"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="Детективные задачи"/>
 
-</RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+</LinearLayout>
+
+
+
+    <LinearLayout
         android:id="@+id/main_card_testD"
         android:layout_below="@id/main_card_tasks"
         android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/main_card_width"
+        android:layout_height="@dimen/main_card_height"
+        android:orientation="vertical"
         android:padding="3dp"
         android:gravity="center"
         android:background="@drawable/main_item_card">
-        <ImageView
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/main_card_test_d_icon"
-            android:scaleType="fitXY"
-            android:contentDescription="@string/todo" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:text="@string/main_cell_memory"
-            android:textSize="@dimen/main_card_textSize"/>
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/main_card_memory_icon"/>
 
-    </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/main_card_textSize"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="Развитие памяти"/>
 
-    <RelativeLayout
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
         android:id="@+id/main_card_testR"
         android:layout_below="@id/main_card_testD"
         android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/main_card_width"
+        android:layout_height="@dimen/main_card_height"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
         android:padding="3dp"
         android:gravity="center"
         android:background="@drawable/main_item_card">
-        <ImageView
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/main_card_test_r_icon"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/todo" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:text="@string/main_cell_readPeople"
-            android:textSize="@dimen/main_card_textSize"/>
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/main_card_non_verb_icon"/>
 
-    </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/main_card_textSize"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="Невербалика"/>
 
-        <RelativeLayout
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/main_card_testL"
             android:layout_below="@id/main_card_testR"
             android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/main_card_width"
+            android:layout_height="@dimen/main_card_height"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
             android:padding="3dp"
             android:gravity="center"
             android:background="@drawable/main_item_card">
-            <ImageView
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/main_card_test_l_icon"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/todo" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:text="@string/main_cell_logic"
-                android:textSize="@dimen/main_card_textSize"/>
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/main_card_login_icon"/>
 
-        </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/main_card_textSize"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="Логические задания"/>
 
-        <RelativeLayout
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/main_card_study"
             android:layout_below="@id/main_card_testL"
             android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/main_card_width"
+            android:layout_height="@dimen/main_card_height"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
             android:padding="3dp"
             android:gravity="center"
             android:background="@drawable/main_item_card">
-            <ImageView
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/main_card_study_icon"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/todo" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:text="@string/main_cell_study"
-                android:textSize="@dimen/main_card_textSize"/>
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/main_card_study_icon"/>
 
-        </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/main_card_textSize"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="Пособия"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
 

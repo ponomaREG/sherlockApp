@@ -109,7 +109,7 @@ public class RV_tasks extends RecyclerView.Adapter<RV_tasks.ViewHolder>{
             holder.show_answer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Adv.showAdWithLoadedWith33PercentChance();
+                    Adv.showAdWithLoadedWithChance();
                     presenter_to_view.tellViewToShowDialogWithDescAnswer(current_task.getAnswer());
                 }
             });

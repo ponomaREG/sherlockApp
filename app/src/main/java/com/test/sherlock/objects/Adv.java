@@ -11,7 +11,7 @@ public class Adv {
     private static String id_ad = "ca-app-pub-7354052962832258/1118758631";
     private static InterstitialAd mInterstitialAd;
     private static int count_of_tasks;
-    private static final int PLATO = 12;
+    private static final int PLATO = 10;
     private static Random random = new Random();
 
 
@@ -56,11 +56,16 @@ public class Adv {
         return count_of_tasks >= PLATO;
     }
 
-    public static void showAdWithLoadedWith33PercentChance(){
+    public static void showAdWithLoadedWithChance(){
         if(random.nextInt(3) == 2) {
-            loadAd();
             showAd();
+            loadAd();
         }
+    }
+
+    public static void showAdWithoutChance(){
+        showAd();
+        loadAd();
     }
 
     public static void iterationAd(){

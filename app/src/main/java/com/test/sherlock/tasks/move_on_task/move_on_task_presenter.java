@@ -3,7 +3,6 @@ package com.test.sherlock.tasks.move_on_task;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import com.test.sherlock.R;
 import com.test.sherlock.objects.Adv;
 
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class move_on_task_presenter implements Interfaces.Presenter {
 
     @Override
     public void OnShowAnswerClick() {
-        Adv.showAdWithLoadedWith33PercentChance();
+        Adv.showAdWithLoadedWithChance();
         view.showDialogWithAnswer(answer);
     }
 
